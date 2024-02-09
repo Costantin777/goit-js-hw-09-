@@ -1,24 +1,3 @@
-
-// 'use strict';  // при модулях строгий режим включен по умолчанию
-
-/**
-  |============================
-  | import library
-  |============================
-*/
-import SimpleLightbox from 'simplelightbox';
-/**
-  |============================
-  | Import css library
-  |============================
-*/
-import 'simplelightbox/dist/simple-lightbox.min.css';
-
-/**
-  |============================
-  | Gallery items
-  |============================
-*/
 const images = [
   {
     preview:
@@ -84,37 +63,21 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
-/**
-  |============================
-  | Gallery markup and add DOM
-  |============================
-*/
-const galleryImg = document.querySelector('.gallery');
-galleryImg.insertAdjacentHTML(
-  'beforeend',
-  images.reduce(
-  (html, { preview, original, description }) =>
-    html +
-    `<li class="gallery-item">
-  <a class="gallery-link" href="${original}">
-    <img
-      class="gallery-image"
-      src="${preview}"
-      alt="${description}"
-      />
-  </a>
-</li>`,
-    ''
-  )
-);
-
-/**
-  |============================
-  | library SimpleLightbox
-  |============================
-*/
-const lightbox = new SimpleLightbox('.gallery a', {
-  captionDelay: 250,
+const galleryList = document.querySelector('.gallery');
+let markup = '';
+images.forEach(({ original, description, preview }) => {
+  markup += `<li class="gallery-item">
+<a class="gallery-link" href="${original}">
+  <img class="gallery-image" src="${preview}" alt="${description}" width="510" height="340" />
+</a>
+</li>`;
+});
+galleryList.insertAdjacentHTML('afterbegin', markup);
+let lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
+  captionPosition: 'bottom',
+  captionDelay: 250,
 });
