@@ -30,18 +30,18 @@ body {
   transition: transform 250ms ease-in;
 }
 
-/* ligthbox overlay style */
+/* listbox overlay style */
 .sl-overlay {
   background-color: rgb(46, 47, 66) !important;
 }
-/* lightbox buttons counter and navigation color */
+/* listbox buttons counter and navigation color */
 .sl-wrapper .sl-close,
 .sl-wrapper .sl-counter,
 .sl-wrapper .sl-navigation button {
   color: #fff !important;
 }
 
-/* lightbox caption style */
+/* listbox caption style */
 .sl-wrapper .sl-image .sl-caption {
   width: fit-content !important;
   padding: 0.4em;
